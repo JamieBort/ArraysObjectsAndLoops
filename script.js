@@ -16,12 +16,12 @@ Answer: This function should return the string "Clive"
 */
 
 let pet = {
-    name : "Clive"
+  name: "Clive"
 };
 
-function getPetName(){
-    // Answer goes here:
-    return pet.name;
+function getPetName() {
+  // Answer goes here:
+  return pet.name;
 }
 
 /*
@@ -33,12 +33,13 @@ Answer: This function should return the string "Betty Ford"
 */
 
 let human = {
-    firstname : "Betty",
-    lastname : "Ford"
+  firstname: "Betty",
+  lastname: "Ford"
 };
 
-function getHumanName(){
-    // Answer goes here:
+function getHumanName() {
+  // Answer goes here:
+  return human.firstname + " " + human.lastname;
 
 }
 
@@ -48,26 +49,28 @@ function getHumanName(){
 Answer: This function should return the string "hill"
 */
 
-let terrain = [ "plain", "mountain", "hill", "beach", "valley" ];
+let terrain = ["plain", "mountain", "hill", "beach", "valley"];
 
-function getTerrain(){
-    // Answer goes here:
+function getTerrain() {
+  // Answer goes here:
+  return terrain[2];
 
 }
 
 /*
-3. Return the 2nd element of the "hobbies" property of the "child" object 
+3. Return the 2nd element of the "hobbies" property of the "child" object
 
 Answer: This function should return the string "running"
 */
 
 let child = {
-    name : "Sam",
-    hobbies : [ "swimming", "running", "swinging" ]
+  name: "Sam",
+  hobbies: ["swimming", "running", "swinging"]
 };
 
-function getChildHobby(){
-    // Answer goes here:
+function getChildHobby() {
+  // Answer goes here:
+  return child.hobbies[1];
 
 }
 
@@ -79,11 +82,15 @@ HINT: You will need to "loop" over the array
 Answer: This function should return [702, 18, 7128, 2658, 702, 1371, 234]
 */
 
-let nums = [ 234, 6, 2376, 886, 234, 457, 78 ];
+let nums = [234, 6, 2376, 886, 234, 457, 78];
 
-function getDoubledArray(){
-    // Answer goes here:
-
+function getDoubledArray() {
+  // Answer goes here:
+  for (var i = 0; i < nums.length; i++) {
+    nums[i] = 3 * nums[i]
+  }
+  console.log(nums);
+  return nums;
 }
 
 /*
@@ -94,12 +101,16 @@ HINT: You will need to "loop" over the array
 Answer: This function should return "k?4Fd9$al;Y1!"
 */
 
-let characters = [ "k", "?", "4", "Fd", "9", "$", "a", "l", ";", "Y", "1", "!"];
+let characters = ["k", "?", "4", "Fd", "9", "$", "a", "l", ";", "Y", "1", "!"];
 
-function getGibberish(){
-    let gibberish = "";
-    // Answer goes here:
-
+function getGibberish() {
+  let gibberish = "";
+  // Answer goes here:
+  for (var i = 0; i < characters.length; i++) {
+    gibberish += characters[i]
+  // console.log(characters[i]);
+  }
+  return gibberish;
 }
 
 /*
@@ -109,13 +120,14 @@ Answer: This function should return { name: "Link", health: "9 hearts", weapon :
 */
 
 let hero = {
-    name: "Link",
-    weapon : "Sword"
+  name: "Link",
+  weapon: "Sword"
 };
 
-function addHealthToHero(){
-    // Answer goes here:
-
+function addHealthToHero() {
+  // Answer goes here:
+  hero.health = "9 hearts"
+  return hero;
 }
 
 /*
@@ -126,11 +138,16 @@ HINT: You will need to "loop" over the array and check "if" the numbers are "les
 Answer: This function should return ["x", 12, "x", 56, 19, "x", "x", "x", 14, 10, "x"]
 */
 
-let bigNums = [ 3, 12, 7, 56, 19, 9, 1, 5, 14, 10, 2 ];
+let bigNums = [3, 12, 7, 56, 19, 9, 1, 5, 14, 10, 2];
 
-function nixLittleNums(){
-    // Answer goes here:
-
+function nixLittleNums() {
+  // Answer goes here:
+  for (var i = 0; i < bigNums.length; i++) {
+    if (bigNums[i] < 10) {
+      bigNums[i] = "x"
+    }
+  }
+  return bigNums;
 }
 
 /*
@@ -141,16 +158,22 @@ HINT: You'll need to call the same function 100 times. "words" is a small array,
 Answer: Since "randomWord" returns a word at random, this document cannot provide an exact result. However, `lotsOfWords.length` should be 100
 */
 
-function randomWord(){
-    let words = [ "puzzling", "thirsty", "sound", "shade", "moon" ];
-    return words[ Math.floor( Math.random() * 5 ) ];
+function randomWord() {
+  let words = ["puzzling", "thirsty", "sound", "shade", "moon"];
+  return words[Math.floor(Math.random() * 5)];
 }
 
-function getBigWordList(){
-    let lotsOfWords = [];
-    // Answer goes here:
+function getBigWordList() {
+  let lotsOfWords = [];
+  // Answer goes here:
+  for (var i = 0; i < 100; i++) {
+    lotsOfWords[i] = randomWord();
+  }
+  // console.log("The length is: " + lotsOfWords.length);
+  return lotsOfWords;
 
 }
+
 
 /*
 9. Within the function, create a new variable "finalChoice" and initialize it with an empty array. Then, iterate over the "option1" and "option2" arrays using a single loop. Within the loop, compare the values of each array at each index. Push the larger of the two numbers onto the "finalChoice" array. Return "finalChoice".
@@ -160,10 +183,18 @@ HINT: You'll need to "loop" over these arrays. "If" the number in option1 is lar
 Answer: This should return [76, 586, 12, 934, 76, 345, 6789, 123, 675, 43654]
 */
 
-let option1 = [ 45, 586, 12, 365, 76, 23, 86, 19, 8, 43654 ];
-let option2 = [ 76, 364, 4, 934, 6, 345, 6789, 123, 675, 12 ];
+let option1 = [45, 586, 12, 365, 76, 23, 86, 19, 8, 43654];
+let option2 = [76, 364, 4, 934, 6, 345, 6789, 123, 675, 12];
 
-function getFinalChoice(){
-    // Answer goes here:
-    
+function getFinalChoice() {
+  // Answer goes here:
+  let finalChoice = [];
+  for (var i = 0; i < 10; i++) {
+    if(option1[i] > option2[i]){
+      finalChoice[i] = option1[i];
+    } else {
+      finalChoice[i] = option2[i]
+    }
+  }
+  return finalChoice;
 }
